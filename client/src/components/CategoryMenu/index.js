@@ -21,8 +21,7 @@ function CategoryMenu() {
       categoryData.categories.forEach(category => {
         idbPromise('categories', 'put', category);
       });
-    }
-    else if (!loading) {
+    } else if (!loading) {
       idbPromise('categories', 'get').then(categories => {
         dispatch({
           type: UPDATE_CATEGORIES,
@@ -30,7 +29,7 @@ function CategoryMenu() {
         });
       });
     }
-  }, [categoryData, dispatch]);
+  }, [categoryData, loading, dispatch]);
 
   const handleClick = id => {
     dispatch({
